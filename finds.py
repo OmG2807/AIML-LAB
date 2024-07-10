@@ -2,18 +2,9 @@ import pandas as pd
 df = pd.read_csv('enjoySport.csv')
 column_length = df.shape[1]
 df.head()
-
-# OUTPUT
-
-# sunny	warm	normal	strong	warm.1	same	yes
-# 0	sunny	warm	high	strong	warm	same	yes
-# 1	rainy	cold	high	strong	warm	change	no
-# 2	sunny	warm	high	strong	cool	change	yes
-
 h=['0']*(column_length-1)
 hp=[]
 hn=[]
-
 for training_example in df.values:
     if training_example[-1]!='no':
         hp.append(list(training_example))
