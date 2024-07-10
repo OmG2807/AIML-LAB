@@ -1,6 +1,8 @@
 import numpy as np
-x = np.array([[2, 9], [1, 5], [3, 6]], dtype=float) / np.amax(np.array([[2, 9], [1, 5], [3, 6]], dtype=float), axis=0)
-y = np.array([[92], [86], [89]], dtype=float) / 100
+x=np.array(([2,9],[1,5],[3,6]),dtype=float)
+y=np.array(([92],[86],[89]),dtype=float)
+x=x/np.amax(x,axis=0)
+y=y/100
 sigmoid = lambda x: 1 / (1 + np.exp(-x))
 derivatives_sigmoid = lambda x: x * (1 - x)
 epoch, lr = 5000, 0.1
