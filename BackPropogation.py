@@ -1,13 +1,8 @@
 import numpy as np
-x=np.array(([2,9],[1,5],[3,6]),dtype=float)
-y=np.array(([92],[86],[89]),dtype=float)
-x=x/np.amax(x,axis=0)
-y=y/100
-def sigmoid(x):
-    return 1/(1+np.exp(-x))
-
-def derivaties_sigmoid(x):
-    return x*(1-x)
+x = np.array([[2, 9], [1, 5], [3, 6]], dtype=float) / np.amax(np.array([[2, 9], [1, 5], [3, 6]], dtype=float), axis=0)
+y = np.array([[92], [86], [89]], dtype=float) / 100
+sigmoid = lambda x: 1 / (1 + np.exp(-x))
+derivatives_sigmoid = lambda x: x * (1 - x)
 epoch, lr = 5000, 0.1
 inputlayer_neurons, hiddenlayer_neurons, output_neurons = 2, 3, 1
 wh, bh = np.random.uniform(size=(inputlayer_neurons, hiddenlayer_neurons)), np.random.uniform(size=(1, hiddenlayer_neurons))
