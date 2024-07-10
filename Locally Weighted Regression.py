@@ -1,7 +1,6 @@
 from math import ceil
 import numpy as np
 from scipy import linalg
-
 def lowess(x, y, f, iterations):
     n = len(x)
     r = int(ceil(f * n))
@@ -17,15 +16,12 @@ def lowess(x, y, f, iterations):
             A = np.array([[np.sum(weights), np.sum(weights * x)],[np.sum(weights * x), np.sum(weights * x * x)]])
             beta = linalg.solve(A, b)
             yest[i] = beta[0] + beta[1] * x[i]
-
         residuals = y - yest
         s = np.median(np.abs(residuals))
         delta = np.clip(residuals / (6.0 * s), -1, 1)
         delta = (1 - delta ** 2) ** 2
-
     return yest
 def main():
-
     import math
     n = 100
     x = np.linspace(0, 2 * math.pi, n)
